@@ -1,12 +1,7 @@
-// ============================================================
-//  КОНФИГУРАЦИЯ ПРОЕКТА «ЛАГЕРНЫЕ ПИТОМЦЫ»
-//  Меняешь значения здесь — работают все страницы сразу.
-// ============================================================
-
 window.CONFIG = {
   // --- Репозиторий с данными ---
   // owner: твой ник на GitHub (как в URL: github.com/<owner>/<repo>)
-  owner: "YOUR_GITHUB_USERNAME",
+  owner: "nochainsaw",
   // repo: название репозитория (например "pets")
   // Если хочешь адрес вида  username.github.io/pets  — назови репо "pets".
   repo: "pets",
@@ -18,11 +13,11 @@ window.CONFIG = {
   //            → Fine-grained tokens → права: Contents = Read and write (только на этот репо)
   // ВАЖНО: токен виден в коде страницы. Не клади в репо с чувствительными данными.
   //        Для лагеря это приемлемо (ты сам так решил).
-  token: "ghp_ЗДЕСЬ_ТВОЙ_ТОКЕН",
+  token: "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",
 
   // --- PIN администратора ---
   // Вход в admin.html происходит по этому пину.
-  adminPin: "0000",
+  adminPin: "6767",
 
   // --- Пути внутри репозитория ---
   dataPath: "data/data.json",
