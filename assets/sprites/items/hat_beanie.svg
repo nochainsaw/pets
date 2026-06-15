@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Слот: hat. Шапка-бини сидит на макушке (~y=40-70) -->
+  <g stroke="#3A2E2A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M70 78 Q70 30 128 26 Q186 30 186 78 Z" fill="#5B8FB9"/>
+    <rect x="64" y="74" width="128" height="18" rx="9" fill="#4A7AA0"/>
+    <circle cx="128" cy="22" r="10" fill="#F4A144"/>
+    <path d="M88 50 Q98 42 108 50 M148 50 Q158 42 168 50" fill="none" stroke-width="2.5" opacity="0.5"/>
+  </g>
+</svg>

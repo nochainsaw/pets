@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Слот: neck. Бабочка на шее (~y=130-160) -->
+  <g stroke="#3A2E2A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M100 132 L70 116 L70 152 L100 140 Z" fill="#8E2D2D"/>
+    <path d="M156 132 L186 116 L186 152 L156 140 Z" fill="#8E2D2D"/>
+    <rect x="116" y="126" width="24" height="20" rx="4" fill="#6E1F1F"/>
+    <path d="M124 132 L132 132" fill="none" stroke-width="2"/>
+    <circle cx="128" cy="146" r="4" fill="#D4A84B"/>
+  </g>
+</svg>

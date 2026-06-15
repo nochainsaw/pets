@@ -1,0 +1,104 @@
+{
+  "species": [
+    { "id": "cat",    "name": "Кот",     "sprite": "cat.svg" },
+    { "id": "dog",    "name": "Собака",  "sprite": "dog.svg" },
+    { "id": "rabbit", "name": "Кролик",  "sprite": "rabbit.svg" },
+    { "id": "dragon", "name": "Дракон",  "sprite": "dragon.svg" },
+    { "id": "owl",    "name": "Сова",    "sprite": "owl.svg" },
+    { "id": "fox",    "name": "Лис",     "sprite": "fox.svg" }
+  ],
+  "items": [
+    { "id": "hat_beanie",  "slot": "hat",   "name": "Шапка-бини",      "sprite": "hat_beanie.svg",  "cost": 50,  "rare": false },
+    { "id": "crown",       "slot": "hat",   "name": "Корона",          "sprite": "crown.svg",       "cost": 200, "rare": false },
+    { "id": "hat_top",     "slot": "hat",   "name": "Цилиндр",         "sprite": "hat_top.svg",     "cost": 120, "rare": false },
+    { "id": "glasses",     "slot": "face",  "name": "Очки",            "sprite": "glasses.svg",     "cost": 80,  "rare": false },
+    { "id": "sunglasses",  "slot": "face",  "name": "Солнечные очки",  "sprite": "sunglasses.svg",  "cost": 90,  "rare": false },
+    { "id": "scarf",       "slot": "neck",  "name": "Шарф",            "sprite": "scarf.svg",       "cost": 60,  "rare": false },
+    { "id": "cape",        "slot": "body",  "name": "Плащ",            "sprite": "cape.svg",        "cost": 150, "rare": false },
+    { "id": "bowtie",      "slot": "neck",  "name": "Бабочка",         "sprite": "bowtie.svg",      "cost": 70,  "rare": false },
+    { "id": "hat_wizard",  "slot": "hat",   "name": "Шляпа волшебника", "sprite": "hat_wizard.svg", "cost": 0,   "rare": true  }
+  ],
+  "codes": [
+    { "code": "LETO2026", "rewardPoints": 30, "rewardItem": null,       "label": "Старт смены",        "active": true, "uses": 0, "maxUses": null },
+    { "code": "HELLO",    "rewardPoints": 10, "rewardItem": null,       "label": "Приветственный",     "active": true, "uses": 0, "maxUses": null },
+    { "code": "WIZARD",   "rewardPoints": 0,  "rewardItem": "hat_wizard", "label": "Секретная награда", "active": true, "uses": 0, "maxUses": null }
+  ],
+  "kids": [
+    {
+      "id": "kid-demo-anya",
+      "ownerName": "Аня",
+      "ownerNick": "anya",
+      "pin": "1234",
+      "points": 250,
+      "inventory": ["crown", "glasses", "scarf"],
+      "redeemedCodes": [],
+      "pet": {
+        "species": "cat",
+        "name": "Мурзик",
+        "mood": "happy",
+        "hunger": 80,
+        "lastFed": "2026-06-15T08:00:00Z",
+        "equipped": { "hat": "crown", "face": "glasses", "neck": "scarf", "body": null }
+      },
+      "createdAt": "2026-06-10T10:00:00Z"
+    },
+    {
+      "id": "kid-demo-boris",
+      "ownerName": "Боря",
+      "ownerNick": "boris",
+      "pin": "1111",
+      "points": 180,
+      "inventory": ["hat_top", "bowtie", "cape"],
+      "redeemedCodes": [],
+      "pet": {
+        "species": "dragon",
+        "name": "Игнат",
+        "mood": "happy",
+        "hunger": 60,
+        "lastFed": "2026-06-14T20:00:00Z",
+        "equipped": { "hat": "hat_top", "face": null, "neck": "bowtie", "body": "cape" }
+      },
+      "createdAt": "2026-06-11T12:00:00Z"
+    },
+    {
+      "id": "kid-demo-vera",
+      "ownerName": "Вера",
+      "ownerNick": "vera",
+      "pin": "2222",
+      "points": 120,
+      "inventory": ["sunglasses", "scarf"],
+      "redeemedCodes": [],
+      "pet": {
+        "species": "fox",
+        "name": "Огонёк",
+        "mood": "happy",
+        "hunger": 100,
+        "lastFed": "2026-06-15T07:30:00Z",
+        "equipped": { "hat": null, "face": "sunglasses", "neck": "scarf", "body": null }
+      },
+      "createdAt": "2026-06-12T09:00:00Z"
+    },
+    {
+      "id": "kid-demo-gleb",
+      "ownerName": "Глеб",
+      "ownerNick": "gleb",
+      "pin": "3333",
+      "points": 60,
+      "inventory": ["hat_beanie"],
+      "redeemedCodes": [],
+      "pet": {
+        "species": "owl",
+        "name": "Уга",
+        "mood": "happy",
+        "hunger": 40,
+        "lastFed": "2026-06-13T18:00:00Z",
+        "equipped": { "hat": "hat_beanie", "face": null, "neck": null, "body": null }
+      },
+      "createdAt": "2026-06-13T14:00:00Z"
+    }
+  ],
+  "meta": {
+    "version": 2,
+    "updatedAt": "2026-06-15T10:00:00Z"
+  }
+}

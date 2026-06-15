@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мой питомец · Лагерные питомцы</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <h1>🐾 Мой питомец</h1>
+    <div class="topbar-actions" id="topActions"></div>
+  </div>
+
+  <div class="wrap">
+    <div id="content" class="loading">
+      <span class="spinner"></span>
+      <p>Загружаем…</p>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <!-- Шаблон страницы питомца (заполняется из JS) -->
+  <template id="tpl">
+    <div class="pet-layout">
+      <div class="pet-main">
+        <div class="pet-stage" id="stage"></div>
+        <h2 id="petName"></h2>
+        <div class="muted" id="ownerLine"></div>
+
+        <div id="rank" style="margin: 10px auto; max-width: 320px;"></div>
+
+        <div class="pet-stats">
+          <div class="stat">
+            <div class="stat-label">Очки</div>
+            <div class="stat-value" id="points">0</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Сытость</div>
+            <div class="stat-value" id="hunger">—</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Кормлён</div>
+            <div class="stat-value" id="lastFed" style="font-size:0.9rem">—</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:8px; justify-content:center; flex-wrap:wrap">
+          <button class="btn" id="feedBtn">🍎 Покормить</button>
+          <button class="btn btn--ghost" id="reloadBtn">↻ Обновить</button>
+        </div>
+
+        <div id="codeArea" style="margin-top:22px; max-width:420px; margin-left:auto; margin-right:auto"></div>
+      </div>
+
+      <div class="inventory">
+        <h3>🎒 Шмотки</h3>
+        <p class="muted" style="font-size:0.85rem">Нажми, чтобы надеть или снять.</p>
+        <div id="invSlots" style="display:flex; flex-direction:column; gap:14px"></div>
+      </div>
+    </div>
+  </template>
+
+  <script src="config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/ranks.js"></script>
+  <script src="assets/js/audio.js"></script>
+  <script src="assets/js/pet-renderer.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/pet.js"></script>
+</body>
+</html>

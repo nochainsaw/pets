@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <g stroke="#3A2E2A" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Хвост шипастый -->
+    <path d="M180 196 L214 178 L208 198 L222 200 L204 218 Z" fill="#6BB28A"/>
+    <!-- Тело -->
+    <ellipse cx="128" cy="198" rx="52" ry="46" fill="#6BB28A"/>
+    <ellipse cx="128" cy="206" rx="22" ry="16" fill="#C8E6B0"/>
+    <!-- Брюхо чешуйки -->
+    <path d="M110 200 Q128 210 146 200" fill="none" stroke-width="3"/>
+    <path d="M114 212 Q128 218 142 212" fill="none" stroke-width="3"/>
+    <!-- Крылья -->
+    <path d="M82 168 Q44 144 52 196 Q74 188 92 180 Z" fill="#4F9A78"/>
+    <path d="M174 168 Q212 144 204 196 Q182 188 164 180 Z" fill="#4F9A78"/>
+    <!-- Лапы с когтями -->
+    <path d="M100 230 L96 244 M108 230 L108 244 M116 230 L120 244" fill="none" stroke-width="3"/>
+    <path d="M140 230 L136 244 M148 230 L148 244 M156 230 L160 244" fill="none" stroke-width="3"/>
+    <!-- Рога -->
+    <path d="M96 32 L88 4 M96 32 L100 6 M96 32 L108 10" fill="none" stroke-width="5" stroke="#D4A84B"/>
+    <path d="M160 32 L168 4 M160 32 L156 6 M160 32 L148 10" fill="none" stroke-width="5" stroke="#D4A84B"/>
+    <!-- Голова -->
+    <ellipse cx="128" cy="98" rx="52" ry="48" fill="#6BB28A"/>
+    <!-- Морда -->
+    <ellipse cx="128" cy="112" rx="26" ry="20" fill="#C8E6B0"/>
+    <!-- Глаза -->
+    <circle cx="108" cy="90" r="7" fill="#3A2E2A" stroke="none"/>
+    <circle cx="148" cy="90" r="7" fill="#3A2E2A" stroke="none"/>
+    <path d="M101 86 L115 86 M141 86 L155 86" fill="#F5DA4B" stroke="none"/>
+    <circle cx="110" cy="88" r="2.5" fill="#fff" stroke="none"/>
+    <circle cx="150" cy="88" r="2.5" fill="#fff" stroke="none"/>
+    <!-- Ноздри -->
+    <circle cx="122" cy="108" r="2" fill="#3A2E2A" stroke="none"/>
+    <circle cx="134" cy="108" r="2" fill="#3A2E2A" stroke="none"/>
+    <!-- Рот -->
+    <path d="M118 120 Q128 128 138 120" fill="none"/>
+  </g>
+</svg>

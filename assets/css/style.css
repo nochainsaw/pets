@@ -1,0 +1,785 @@
+/* ============================================================
+   «Лагерные питомцы» — общие стили
+   ============================================================ */
+
+:root {
+  --bg: #f5efe4;
+  --bg-card: #fffdf7;
+  --primary: #e07a3c;
+  --primary-dark: #b85e26;
+  --accent: #5b8fb9;
+  --text: #3a2e2a;
+  --text-muted: #8a7c72;
+  --border: #e0d6c5;
+  --shadow: 0 4px 14px rgba(58, 46, 42, 0.1);
+  --radius: 14px;
+  --ok: #4caf50;
+  --warn: #e74c3c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", "Helvetica Neue", system-ui, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--primary-dark);
+}
+
+/* --- Шапка --- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 20px;
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: var(--primary-dark);
+}
+
+.topbar .topbar-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* --- Контейнер --- */
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.wrap-narrow {
+  max-width: 560px;
+}
+
+/* --- Кнопки --- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 10px;
+  background: var(--primary);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.08s ease, background 0.15s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  background: #c8bcae;
+  cursor: not-allowed;
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--text);
+  border: 2px solid var(--border);
+}
+
+.btn--ghost:hover {
+  background: #f0e9da;
+}
+
+.btn--small {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.btn--danger {
+  background: var(--warn);
+}
+
+.btn--danger:hover {
+  background: #c0392b;
+}
+
+/* --- Формы --- */
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-size: 1rem;
+  background: #fff;
+  color: var(--text);
+}
+
+.field input:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* --- Карточки / сетка --- */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.1s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card--mine {
+  border-color: var(--primary);
+  background: #fff5e9;
+}
+
+.card .card-rank {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.card .card-rank.gold {
+  background: #f5c842;
+  color: #6b4e00;
+}
+.card .card-rank.silver {
+  background: #c0c0c0;
+  color: #333;
+}
+.card .card-rank.bronze {
+  background: #cd7f32;
+}
+
+.card .pet-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 4px 0 0;
+}
+
+.card .owner {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.card .points {
+  margin-top: 6px;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* --- Сцена питомца (рендер) --- */
+
+.pet-stage {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(180deg, #d8eefc 0%, #c5e6f5 60%, #b8d8a8 100%);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 2px solid var(--border);
+}
+
+.pet-stage--mini {
+  border: none;
+  background: transparent;
+}
+
+.pet-stage--mini .pet-layer {
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.15));
+}
+
+.pet-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* --- Страница питомца --- */
+
+.pet-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .pet-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pet-main {
+  text-align: center;
+}
+
+.pet-main .pet-stage {
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+}
+
+.pet-main h2 {
+  margin: 14px 0 4px;
+}
+
+.pet-stats {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 16px;
+  min-width: 90px;
+}
+
+.stat .stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.stat .stat-value {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+/* --- Инвентарь --- */
+
+.inventory h3 {
+  margin-top: 0;
+}
+
+.inv-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  gap: 8px;
+}
+
+.inv-slot {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 6px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.7rem;
+  transition: border-color 0.1s ease, transform 0.08s ease;
+}
+
+.inv-slot:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.inv-slot--equipped {
+  border-color: var(--ok);
+  background: #eaf6ec;
+}
+
+.inv-slot img {
+  width: 100%;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
+.inv-slot--empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-style: italic;
+  cursor: default;
+  min-height: 70px;
+}
+
+.inv-slot--empty:hover {
+  border-color: var(--border);
+  transform: none;
+}
+
+/* --- Утилиты --- */
+
+.muted {
+  color: var(--text-muted);
+}
+
+.center {
+  text-align: center;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+}
+
+.empty-state h3 {
+  margin-top: 0;
+}
+
+/* --- Тосты (всплывашки) --- */
+
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text);
+  color: #fff;
+  padding: 12px 22px;
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  font-weight: 600;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  max-width: 90vw;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-4px);
+}
+
+#toast.error {
+  background: var(--warn);
+}
+
+#toast.ok {
+  background: var(--ok);
+}
+
+/* --- Табы (админка) --- */
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 2px solid var(--border);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  padding: 10px 18px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+}
+
+.tab.active {
+  color: var(--primary-dark);
+  border-bottom-color: var(--primary);
+}
+
+/* --- Таблица --- */
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+table.data th,
+table.data td {
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+table.data th {
+  background: #f0e9da;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+table.data tr:last-child td {
+  border-bottom: none;
+}
+
+/* --- Спиннер --- */
+
+.spinner {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+}
+
+/* --- Выбор питомца (форма регистрации) --- */
+
+.species-picker {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 10px;
+}
+
+.species-option {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.1s ease, transform 0.08s ease;
+}
+
+.species-option:hover {
+  transform: translateY(-2px);
+}
+
+.species-option.selected {
+  border-color: var(--primary);
+  background: #fff5e9;
+}
+
+.species-option img {
+  width: 100%;
+  height: 80px;
+  object-fit: contain;
+}
+
+.species-option .name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ============================================================
+   ДОБАВЛЕНО v2: ранги, редкие предметы, магазин, анимации
+   ============================================================ */
+
+/* --- Ранг (бейдж) --- */
+
+.rank-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.rank-badge .rank-icon {
+  font-size: 0.95rem;
+}
+
+/* Полоска прогресса ранга */
+.rank-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.rank-bar > div {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4px;
+  transition: width 0.4s ease;
+}
+
+/* --- Редкие предметы --- */
+
+.inv-slot--rare {
+  border-color: #d4af37;
+  background: linear-gradient(135deg, #fff8e1 0%, #ffe9a8 100%);
+  box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+  position: relative;
+}
+
+.inv-slot--rare::after {
+  content: "✨";
+  position: absolute;
+  top: 2px;
+  right: 4px;
+  font-size: 0.75rem;
+}
+
+.inv-slot--rare.inv-slot--equipped {
+  border-color: var(--ok);
+  background: linear-gradient(135deg, #eaf6ec 0%, #e0efd0 100%);
+}
+
+/* --- Карточка товара в магазине --- */
+
+.shop-item {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.shop-item--rare {
+  border-color: #d4af37;
+  background: linear-gradient(135deg, #fffdf7 0%, #fff5d6 100%);
+  box-shadow: 0 0 16px rgba(212, 175, 55, 0.35);
+}
+
+.shop-item--owned {
+  opacity: 0.6;
+}
+
+.shop-item .shop-sprite {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.15));
+}
+
+.shop-item .shop-name {
+  font-weight: 700;
+}
+
+.shop-item .shop-cost {
+  color: var(--primary-dark);
+  font-weight: 700;
+}
+
+.shop-item .shop-slot {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* --- Анимация: питомец подпрыгивает (кормление) --- */
+
+@keyframes petBounce {
+  0%, 100% { transform: translateY(0); }
+  20% { transform: translateY(-18px); }
+  40% { transform: translateY(0); }
+  60% { transform: translateY(-8px); }
+  80% { transform: translateY(0); }
+}
+
+.pet-stage--bounce {
+  animation: petBounce 0.7s ease;
+}
+
+/* --- Анимация: шейк при ошибке --- */
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.shake {
+  animation: shake 0.4s ease;
+}
+
+/* --- Сердечки, летящие вверх при кормлении --- */
+
+.heart {
+  position: absolute;
+  font-size: 1.4rem;
+  pointer-events: none;
+  animation: heartFloat 1.2s ease-out forwards;
+  z-index: 5;
+}
+
+@keyframes heartFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(0.5);
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-90px) scale(1.4);
+  }
+}
+
+/* --- Свечение при новом ранге / награде --- */
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245, 218, 75, 0); }
+  50% { box-shadow: 0 0 30px 8px rgba(245, 218, 75, 0.6); }
+}
+
+.pet-stage--glow {
+  animation: glowPulse 1.5s ease;
+}
+
+/* --- Конфетти --- */
+
+.confetti-piece {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 16px;
+  z-index: 9999;
+  pointer-events: none;
+  animation: confettiFall linear forwards;
+}
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(105vh) rotate(720deg);
+    opacity: 0.9;
+  }
+}
+
+/* --- Кнопка-иконка звука --- */
+
+.btn-icon {
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+}
+
+/* --- Поле ввода промокода --- */
+
+.code-input {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.code-input input {
+  flex: 1;
+  min-width: 160px;
+  padding: 12px 14px;
+  border: 2px dashed var(--primary);
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  background: #fff;
+}
+
+.code-input input:focus {
+  outline: none;
+  background: #fff5e9;
+}
+

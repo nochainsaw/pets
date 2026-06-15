@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магазин · Лагерные питомцы</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <h1>🛒 Магазин</h1>
+    <div class="topbar-actions" id="topActions"></div>
+  </div>
+
+  <div class="wrap">
+    <div id="content" class="loading">
+      <span class="spinner"></span>
+      <p>Загружаем магазин…</p>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <template id="tpl">
+    <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:18px; flex-wrap:wrap">
+      <h2 style="margin:0">Твой баланс: <span id="balance" style="color:var(--primary-dark)">0</span> ⭐</h2>
+      <a class="btn btn--ghost btn--small" href="pet.html">← Назад к питомцу</a>
+    </div>
+
+    <div id="shopGrid" class="grid"></div>
+
+    <p class="muted center" style="margin-top:24px">
+      Зарабатывай очки на занятиях или вводи промокоды на странице питомца.
+    </p>
+  </template>
+
+  <script src="config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/pet-renderer.js"></script>
+  <script src="assets/js/audio.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/shop.js"></script>
+</body>
+</html>

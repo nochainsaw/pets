@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админка · Лагерные питомцы</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <h1>⚙ Админка</h1>
+    <div class="topbar-actions" id="topActions"></div>
+  </div>
+
+  <div class="wrap">
+    <!-- ЭКРАН ВХОДА -->
+    <div id="loginScreen" class="wrap wrap-narrow" style="margin:60px auto">
+      <div class="card">
+        <h3 style="margin-top:0">Вход в админку</h3>
+        <p class="muted">Введите админ-PIN (из <code>config.js</code>).</p>
+        <div class="field">
+          <input type="password" id="adminPinInput" inputmode="numeric" maxlength="10" placeholder="••••" autocomplete="off">
+        </div>
+        <button class="btn" id="adminPinBtn" style="width:100%">Войти</button>
+      </div>
+    </div>
+
+    <!-- РАБОЧАЯ ОБЛАСТЬ -->
+    <div id="workspace" style="display:none">
+      <div class="tabs">
+        <button class="tab active" data-tab="kids">👶 Дети</button>
+        <button class="tab" data-tab="items">👕 Шмотки</button>
+        <button class="tab" data-tab="species">🐾 Виды</button>
+        <button class="tab" data-tab="codes">🎟 Промокоды</button>
+        <button class="tab" data-tab="raw">📄 JSON</button>
+      </div>
+
+      <!-- ТАБ: ДЕТИ -->
+      <div class="tabpanel" id="tab-kids">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px; flex-wrap:wrap">
+          <h2 style="margin:0">Дети и очки</h2>
+          <button class="btn btn--ghost btn--small" id="reloadKids">↻ Обновить</button>
+        </div>
+        <div class="table-wrap">
+          <table class="data" id="kidsTable">
+            <thead>
+              <tr>
+                <th>Хозяин</th>
+                <th>Питомец</th>
+                <th>PIN</th>
+                <th>Очки</th>
+                <th>Выдать шмотку</th>
+                <th>Действия</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ТАБ: ШМОТКИ -->
+      <div class="tabpanel" id="tab-items" style="display:none">
+        <h2>Шмотки</h2>
+        <p class="muted">Существующие предметы + добавить новый.</p>
+        <div class="table-wrap" style="margin-bottom:24px">
+          <table class="data" id="itemsTable">
+            <thead>
+              <tr>
+                <th>ID</th><th>Название</th><th>Слот</th><th>Спрайт</th><th>Цена</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <h3>Добавить шмотку</h3>
+        <form id="addItemForm" style="display:grid; grid-template-columns:1fr 1fr; gap:10px">
+          <div class="field"><label>ID (латиница)</label><input id="newItemId" placeholder="hat_wizard" required></div>
+          <div class="field"><label>Название</label><input id="newItemName" placeholder="Шляпа волшебника" required></div>
+          <div class="field"><label>Слот</label>
+            <select id="newItemSlot">
+              <option value="hat">hat</option>
+              <option value="face">face</option>
+              <option value="neck">neck</option>
+              <option value="body">body</option>
+            </select>
+          </div>
+          <div class="field"><label>Цена (очки)</label><input id="newItemCost" type="number" value="50"></div>
+          <div class="field" style="grid-column:1/-1"><label>Спрайт (имя файла в assets/sprites/items/)</label><input id="newItemSprite" placeholder="hat_wizard.svg"></div>
+          <button type="submit" class="btn" style="grid-column:1/-1">Добавить</button>
+        </form>
+      </div>
+
+      <!-- ТАБ: ВИДЫ -->
+      <div class="tabpanel" id="tab-species" style="display:none">
+        <h2>Виды питомцев</h2>
+        <div class="table-wrap" style="margin-bottom:24px">
+          <table class="data" id="speciesTable">
+            <thead><tr><th>ID</th><th>Название</th><th>Спрайт</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <h3>Добавить вид</h3>
+        <form id="addSpeciesForm" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px">
+          <div class="field"><label>ID</label><input id="newSpeciesId" placeholder="hamster" required></div>
+          <div class="field"><label>Название</label><input id="newSpeciesName" placeholder="Хомяк" required></div>
+          <div class="field"><label>Спрайт</label><input id="newSpeciesSprite" placeholder="hamster.svg"></div>
+          <button type="submit" class="btn" style="grid-column:1/-1">Добавить</button>
+        </form>
+      </div>
+
+      <!-- ТАБ: RAW JSON -->
+      <div class="tabpanel" id="tab-codes" style="display:none">
+        <h2>🎟 Промокоды</h2>
+        <p class="muted">Кодовые слова для детей: вводят на странице питомца → получают очки или редкую шмотку.</p>
+        <div class="table-wrap" style="margin-bottom:24px">
+          <table class="data" id="codesTable">
+            <thead>
+              <tr>
+                <th>Код</th><th>Описание</th><th>Награда</th><th>Использован</th><th>Статус</th><th>Действие</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <h3>Создать промокод</h3>
+        <form id="addCodeForm" style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px">
+          <div class="field"><label>Код (заглавные буквы/цифры)</label><input id="newCodeCode" placeholder="LETO2026" required></div>
+          <div class="field"><label>Описание</label><input id="newCodeLabel" placeholder="Старт смены"></div>
+          <div class="field"><label>Очки в награду</label><input id="newCodePoints" type="number" value="20"></div>
+          <div class="field"><label>Предмет в награду (не обязательно)</label>
+            <select id="newCodeItem">
+              <option value="">— без предмета —</option>
+            </select>
+          </div>
+          <div class="field"><label>Максимум использований (пусто = без лимита)</label><input id="newCodeMaxUses" type="number" placeholder="без лимита"></div>
+          <div></div>
+          <button type="submit" class="btn" style="grid-column:1/-1">Создать код</button>
+        </form>
+      </div>
+
+      <!-- ТАБ: RAW JSON -->
+      <div class="tabpanel" id="tab-raw" style="display:none">
+        <h2>Сырой data.json</h2>
+        <p class="muted">Только просмотр. Все правки — через формы выше.</p>
+        <pre id="rawJson" style="background:#fff; border:1px solid var(--border); padding:14px; border-radius:10px; overflow:auto; max-height:60vh"></pre>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/pet-renderer.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/admin.js"></script>
+</body>
+</html>

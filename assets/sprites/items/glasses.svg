@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Слот: face. Обычные очки на глазах (~y=80-104) -->
+  <g stroke="#3A2E2A" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" fill="none">
+    <circle cx="108" cy="92" r="18" fill="rgba(180,210,230,0.35)"/>
+    <circle cx="148" cy="92" r="18" fill="rgba(180,210,230,0.35)"/>
+    <path d="M126 92 L130 92"/>
+    <path d="M90 90 L74 86 M166 90 L182 86"/>
+  </g>
+</svg>

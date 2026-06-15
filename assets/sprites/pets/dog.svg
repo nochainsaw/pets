@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <g stroke="#3A2E2A" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Тело -->
+    <ellipse cx="128" cy="196" rx="58" ry="50" fill="#C99B6B"/>
+    <ellipse cx="128" cy="204" rx="24" ry="18" fill="#F0E4D2"/>
+    <!-- Передние лапы -->
+    <ellipse cx="98" cy="232" rx="14" ry="14" fill="#C99B6B"/>
+    <ellipse cx="158" cy="232" rx="14" ry="14" fill="#C99B6B"/>
+    <!-- Хвост -->
+    <path d="M182 196 Q220 188 214 156" fill="none"/>
+    <!-- Уши висячие -->
+    <path d="M78 64 Q56 96 70 124 Q88 110 88 80 Z" fill="#8E6443"/>
+    <path d="M178 64 Q200 96 186 124 Q168 110 168 80 Z" fill="#8E6443"/>
+    <!-- Голова -->
+    <ellipse cx="128" cy="96" rx="56" ry="52" fill="#C99B6B"/>
+    <!-- Морда -->
+    <ellipse cx="128" cy="112" rx="28" ry="22" fill="#F0E4D2"/>
+    <!-- Пятно над глазом -->
+    <ellipse cx="100" cy="82" rx="14" ry="10" fill="#8E6443" opacity="0.6"/>
+    <!-- Глаза -->
+    <circle cx="108" cy="92" r="6.5" fill="#3A2E2A" stroke="none"/>
+    <circle cx="148" cy="92" r="6.5" fill="#3A2E2A" stroke="none"/>
+    <circle cx="110" cy="90" r="2.2" fill="#fff" stroke="none"/>
+    <circle cx="150" cy="90" r="2.2" fill="#fff" stroke="none"/>
+    <!-- Брови -->
+    <path d="M98 80 L118 84 M158 80 L138 84" fill="none" stroke-width="3"/>
+    <!-- Нос -->
+    <ellipse cx="128" cy="110" rx="8" ry="6" fill="#3A2E2A" stroke="none"/>
+    <!-- Рот -->
+    <path d="M128 116 L128 124 Q120 130 114 125 M128 124 Q136 130 142 125" fill="none"/>
+  </g>
+</svg>

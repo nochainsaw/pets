@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Слот: body. Плащ на спине/боках (~y=120-250) -->
+  <g stroke="#3A2E2A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M70 130 Q40 180 60 250 L196 250 Q216 180 186 130 Q160 150 128 150 Q96 150 70 130 Z" fill="#6A2E8E"/>
+    <path d="M70 130 Q96 150 128 150 Q160 150 186 130 L186 140 Q160 160 128 160 Q96 160 70 140 Z" fill="#4E1F6E"/>
+    <path d="M84 170 L100 178 M110 190 L126 198 M140 180 L156 188" fill="none" stroke-width="2.5" opacity="0.4"/>
+    <!-- Завязки на шее -->
+    <circle cx="118" cy="134" r="5" fill="#D4A84B"/>
+    <circle cx="138" cy="134" r="5" fill="#D4A84B"/>
+  </g>
+</svg>

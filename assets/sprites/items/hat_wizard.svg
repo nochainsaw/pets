@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Слот: hat. RARE. Шляпа волшебника со звёздами (~y=0-70) -->
+  <g stroke="#9A7B1F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Поля шляпы -->
+    <ellipse cx="128" cy="74" rx="74" ry="10" fill="#6A2E8E"/>
+    <!-- Тулья конусом -->
+    <path d="M70 74 L96 6 Q128 16 160 6 L186 74 Z" fill="#8E44D9"/>
+    <!-- Светящаяся кайма -->
+    <path d="M70 74 L96 6 Q128 16 160 6 L186 74" fill="none" stroke="#D4A84B" stroke-width="2"/>
+    <!-- Загиб кончика -->
+    <circle cx="128" cy="12" r="6" fill="#D4A84B"/>
+    <!-- Звёзды -->
+    <path d="M108 44 L111 52 L119 52 L113 57 L115 65 L108 60 L101 65 L103 57 L97 52 L105 52 Z" fill="#F5DA4B" stroke="#9A7B1F" stroke-width="1.5"/>
+    <path d="M142 30 L144 35 L149 35 L145 38 L146 43 L142 40 L138 43 L139 38 L135 35 L140 35 Z" fill="#F5DA4B" stroke="#9A7B1F" stroke-width="1.5"/>
+    <path d="M132 56 L134 60 L138 60 L135 63 L136 67 L132 65 L128 67 L129 63 L126 60 L130 60 Z" fill="#fff" stroke="#9A7B1F" stroke-width="1.5"/>
+    <!-- Блёстки -->
+    <circle cx="118" cy="24" r="1.8" fill="#fff" stroke="none"/>
+    <circle cx="148" cy="50" r="1.5" fill="#fff" stroke="none"/>
+    <circle cx="104" cy="62" r="1.5" fill="#fff" stroke="none"/>
+  </g>
+</svg>

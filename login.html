@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Вход · Лагерные питомцы</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <h1>🐾 Лагерные питомцы</h1>
+    <div class="topbar-actions" id="topActions"></div>
+  </div>
+
+  <div class="wrap wrap-narrow">
+    <div class="tabs">
+      <button class="tab active" id="tabNew">✨ Новый питомец</button>
+      <button class="tab" id="tabExist">🚪 У меня уже есть</button>
+    </div>
+
+    <!-- РЕГИСТРАЦИЯ -->
+    <form id="formRegister" class="panel">
+      <div class="field">
+        <label>Твоё имя</label>
+        <input type="text" id="ownerName" placeholder="Например, Аня" autocomplete="off">
+      </div>
+      <div class="field">
+        <label>Ник (как тебя будут находить)</label>
+        <input type="text" id="ownerNick" placeholder="anya" autocomplete="off">
+        <small class="muted">Только латиница/цифры, без пробелов.</small>
+      </div>
+
+      <div class="field">
+        <label>Выбери питомца</label>
+        <div id="speciesPicker" class="species-picker">
+          <span class="spinner"></span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Кличка питомца</label>
+        <input type="text" id="petName" placeholder="Например, Мурзик" autocomplete="off">
+      </div>
+
+      <div class="field">
+        <label>Секретный PIN (4 цифры)</label>
+        <input type="password" id="pin" inputmode="numeric" pattern="\d{4}" maxlength="4" placeholder="••••" autocomplete="off">
+        <small class="muted">Понадобится, чтобы заходить к своему питомцу.</small>
+      </div>
+
+      <button type="submit" class="btn" style="width:100%">Завести питомца 🎉</button>
+    </form>
+
+    <!-- ВХОД -->
+    <form id="formLogin" class="panel" style="display:none">
+      <div class="field">
+        <label>Кто ты? (ник)</label>
+        <select id="loginSelect"></select>
+      </div>
+      <div class="field">
+        <label>PIN</label>
+        <input type="password" id="loginPin" inputmode="numeric" pattern="\d{4}" maxlength="4" placeholder="••••" autocomplete="off">
+      </div>
+      <button type="submit" class="btn" style="width:100%">Войти 🚪</button>
+    </form>
+
+    <p class="center" style="margin-top:18px">
+      <a href="index.html">← Назад к галерее</a>
+    </p>
+  </div>
+
+  <div id="toast"></div>
+
+  <script src="config.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/auth.js"></script>
+  <script src="assets/js/pet-renderer.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/login.js"></script>
+</body>
+</html>

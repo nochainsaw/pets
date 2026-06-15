@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Слот: neck. Шарф на шее (~y=150-185) -->
+  <g stroke="#3A2E2A" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M72 158 Q128 178 184 158 L186 178 Q128 198 70 178 Z" fill="#E74C3C"/>
+    <path d="M184 172 L196 214 L178 214 L172 178 Z" fill="#E74C3C"/>
+    <path d="M178 186 L194 186 M176 196 L192 196 M180 206 L188 206" fill="none" stroke-width="2.5"/>
+    <path d="M80 170 L84 178 M100 172 L104 180 M120 174 L124 182 M144 174 L148 182 M164 172 L168 180" fill="none" stroke-width="2.5" opacity="0.6"/>
+  </g>
+</svg>

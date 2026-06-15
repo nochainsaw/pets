@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Слот: hat. Корона сидит на макушке (~y=10-60) -->
+  <g stroke="#9A7B1F" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M64 70 L64 36 L92 58 L112 22 L128 54 L144 22 L164 58 L192 36 L192 70 Z" fill="#F5DA4B"/>
+    <rect x="64" y="62" width="128" height="10" fill="#E0C53D"/>
+    <circle cx="92" cy="56" r="6" fill="#E74C3C"/>
+    <circle cx="128" cy="52" r="7" fill="#3498DB"/>
+    <circle cx="164" cy="56" r="6" fill="#27AE60"/>
+    <circle cx="128" cy="24" r="4" fill="#fff"/>
+  </g>
+</svg>

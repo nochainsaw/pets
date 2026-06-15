@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <g stroke="#3A2E2A" stroke-width="4" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Тело/перо -->
+    <ellipse cx="128" cy="196" rx="50" ry="56" fill="#9C7A52"/>
+    <!-- Пятна на перьях -->
+    <ellipse cx="108" cy="190" rx="8" ry="6" fill="#6E5238" stroke="none"/>
+    <ellipse cx="148" cy="196" rx="8" ry="6" fill="#6E5238" stroke="none"/>
+    <ellipse cx="128" cy="210" rx="8" ry="6" fill="#6E5238" stroke="none"/>
+    <!-- Грудка -->
+    <ellipse cx="128" cy="196" rx="22" ry="32" fill="#F0E4D2"/>
+    <!-- Лапки -->
+    <path d="M114 244 L110 252 M122 244 L122 252 M130 244 L134 252" fill="none" stroke-width="3"/>
+    <path d="M122 244 L118 252 M130 244 L130 252 M138 244 L142 252" fill="none" stroke-width="3"/>
+    <!-- Ушные пучки -->
+    <path d="M84 56 Q72 28 90 24 Q92 44 98 60 Z" fill="#9C7A52"/>
+    <path d="M172 56 Q184 28 166 24 Q164 44 158 60 Z" fill="#9C7A52"/>
+    <!-- Голова -->
+    <circle cx="128" cy="98" r="52" fill="#9C7A52"/>
+    <!-- Лицевой диск -->
+    <ellipse cx="128" cy="104" rx="40" ry="44" fill="#C4A07A"/>
+    <!-- Глаза большие -->
+    <circle cx="108" cy="92" r="16" fill="#fff"/>
+    <circle cx="148" cy="92" r="16" fill="#fff"/>
+    <circle cx="108" cy="92" r="9" fill="#F5DA4B" stroke="none"/>
+    <circle cx="148" cy="92" r="9" fill="#F5DA4B" stroke="none"/>
+    <circle cx="108" cy="92" r="5" fill="#3A2E2A" stroke="none"/>
+    <circle cx="148" cy="92" r="5" fill="#3A2E2A" stroke="none"/>
+    <circle cx="110" cy="90" r="1.8" fill="#fff" stroke="none"/>
+    <circle cx="150" cy="90" r="1.8" fill="#fff" stroke="none"/>
+    <!-- Клюв -->
+    <path d="M120 116 L136 116 L128 128 Z" fill="#D4A84B"/>
+  </g>
+</svg>
