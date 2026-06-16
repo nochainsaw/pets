@@ -258,7 +258,7 @@
         "hunger": 100,
         "lastFed": "2026-06-16T19:01:47.584Z",
         "equipped": {
-          "hat": null,
+          "hat": "hat_wizard",
           "face": null,
           "neck": null,
           "body": null
@@ -272,6 +272,6 @@
   ],
   "meta": {
     "version": 2,
-    "updatedAt": "2026-06-16T19:01:57.240Z"
+    "updatedAt": "2026-06-16T19:02:01.781Z"
   }
 }
