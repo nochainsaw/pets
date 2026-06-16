@@ -46,12 +46,47 @@ window.Store = (function () {
   // Превращаем base64-строку из GitHub в текст (UTF-8 безопасно).
   function decodeBase64(b64) {
     // GitHub отдаёт base64 без переносов, но на всякий случай чистим.
-    const clean = b64.replace(/\s/g, "");
+    const clean = String(b64 || "").replace(/\s/g, "");
     // decode → bytes → UTF-8 строка
     const binary = atob(clean);
     const bytes = new Uint8Array(binary.length);
     for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
     return new TextDecoder("utf-8").decode(bytes);
+  }
+
+  // Нормализуем ответ от прокси в единый формат { content, sha }.
+  // Поддерживаем ДВА формата ответа:
+  //   1) GitHub Contents API:  { content: "<base64>", sha: "..." }
+  //   2) Кастомный воркер:      { data: { ...готовый объект... }, sha: "..." }
+  //                          или { json: "...строка..." , sha }
+  //                          или сам объект данных с полем _sha.
+  function normalizeFile(file) {
+    if (!file) throw new Error("Пустой ответ от источника данных");
+
+    // Случай 1: GitHub-формат (base64-контент).
+    if (typeof file.content === "string") {
+      return { content: file.content, sha: file.sha };
+    }
+
+    // Случай 2: воркер уже декодировал — отдаёт объект целиком.
+    if (file.data && typeof file.data === "object") {
+      return { content: JSON.stringify(file.data), sha: file.sha, alreadyJson: true };
+    }
+
+    // Случай 3: воркер отдал JSON-строкой.
+    if (typeof file.json === "string") {
+      return { content: file.json, sha: file.sha, alreadyJson: true };
+    }
+
+    // Случай 4: сам объект данных, sha пришёл отдельным полем.
+    if (file.sha && (file.species || file.kids || file.items)) {
+      return { content: JSON.stringify(file), sha: file.sha, alreadyJson: true };
+    }
+
+    throw new Error(
+      "Неизвестный формат ответа. Ожидался {content, sha} или {data, sha}. " +
+        "Получено: " + JSON.stringify(file).slice(0, 200)
+    );
   }
 
   // Кодируем текст в base64 (UTF-8 безопасно).
@@ -136,8 +171,9 @@ window.Store = (function () {
   function loadData() {
     if (!isConfigured()) return Promise.reject(notConfiguredError());
 
-    return fetchFile().then((file) => {
-      const json = decodeBase64(file.content);
+    return fetchFile().then((raw) => {
+      const file = normalizeFile(raw);
+      const json = file.alreadyJson ? file.content : decodeBase64(file.content);
       const data = JSON.parse(json);
       data._sha = file.sha; // сохраняем для будущих записей
       return data;
@@ -174,10 +210,12 @@ window.Store = (function () {
   function writeWithRetry(updater, message, attempt) {
     const MAX = 3;
     return fetchFile()
-      .then((file) => {
+      .then((raw) => {
+        const file = normalizeFile(raw);
         let data;
         try {
-          data = JSON.parse(decodeBase64(file.content));
+          const json = file.alreadyJson ? file.content : decodeBase64(file.content);
+          data = JSON.parse(json);
         } catch (e) {
           // Файл битый — стартуем с пустой структуры, чтобы починить.
           console.warn("[store] data.json не парсится, перезаписываю пустым.", e);
