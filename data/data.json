@@ -247,7 +247,8 @@
       "pin": "5555",
       "points": 6767,
       "inventory": [
-        "sunglasses"
+        "sunglasses",
+        "crown"
       ],
       "pet": {
         "species": "dragon",
@@ -267,6 +268,6 @@
   ],
   "meta": {
     "version": 2,
-    "updatedAt": "2026-06-16T19:01:00.659Z"
+    "updatedAt": "2026-06-16T19:01:10.099Z"
   }
 }
