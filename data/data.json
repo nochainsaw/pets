@@ -254,8 +254,8 @@
         "species": "dragon",
         "name": "Кринжик",
         "mood": "happy",
-        "hunger": 70,
-        "lastFed": null,
+        "hunger": 100,
+        "lastFed": "2026-06-16T19:01:47.584Z",
         "equipped": {
           "hat": null,
           "face": null,
@@ -268,6 +268,6 @@
   ],
   "meta": {
     "version": 2,
-    "updatedAt": "2026-06-16T19:01:10.099Z"
+    "updatedAt": "2026-06-16T19:01:47.848Z"
   }
 }
