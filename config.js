@@ -1,42 +1,69 @@
+// ============================================================
+//  КОНФИГУРАЦИЯ ПРОЕКТА «ЛАГЕРНЫЕ ПИТОМЦЫ»
+//  Меняешь значения здесь — работают все страницы сразу.
+// ============================================================
+//
+//  ДВА РЕЖИМА РАБОТЫ:
+//
+//  1) ЧЕРЕЗ CLOUDFLARE WORKER (рекомендуется, токен спрятан):
+//     useWorker: true, workerUrl: адрес твоего воркера.
+//     Токен хранится в секрете воркера, в этом файле его нет.
+//     См. worker/README-WORKER.md — как развернуть воркер.
+//
+//  2) НАПРЯМУЮ ЧЕРЕЗ GITHUB API (токен виден в коде — небезопасно):
+//     useWorker: false, owner/repo/token заполнены.
+//     GitHub будет регулярно отзывать токен автоматически.
+//     Этот режим — только для быстрой отладки, не для лагеря.
+// ============================================================
+
 window.CONFIG = {
-  // --- Репозиторий с данными ---
-  // owner: твой ник на GitHub (как в URL: github.com/<owner>/<repo>)
+  // --- Включить проксирование через Cloudflare Worker ---
+  useWorker: true,
+
+  // Адрес твоего воркера (появится после деплоя в Cloudflare).
+  // Скорее всего вида: https://pets-proxy.твой-сабаккаунт.workers.dev
+  workerUrl: "https://pets.hamster-gdepost.workers.dev",
+
+  // --- Для прямого режима (useWorker:false) ---
   owner: "nochainsaw",
-  // repo: название репозитория (например "pets")
-  // Если хочешь адрес вида  username.github.io/pets  — назови репо "pets".
   repo: "pets",
-  // branch: ветка, в которой лежит data.json (обычно main)
   branch: "main",
+  // Не используется в режиме воркера. В режиме прямого доступа —
+  // твой GitHub fine-grained токен.
+  token: "",
 
-  // --- Токен для чтения/записи data.json ---
-  // Создаётся: GitHub → Settings → Developer settings → Personal access tokens
-  //            → Fine-grained tokens → права: Contents = Read and write (только на этот репо)
-  // ВАЖНО: токен виден в коде страницы. Не клади в репо с чувствительными данными.
-  //        Для лагеря это приемлемо (ты сам так решил).
-  token: "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",
-
-  // --- PIN администратора ---
-  // Вход в admin.html происходит по этому пину.
+  // --- PIN администратора (в обоих режимах) ---
   adminPin: "6767",
 
-  // --- Пути внутри репозитория ---
+  // --- Пути ---
   dataPath: "data/data.json",
-
-  // --- Базовый URL API ---
-  // Если позже захочешь спрятать токен через Cloudflare Worker —
-  // поменяй apiBase на адрес воркера и убери token выше.
+  // Прямой адрес GitHub API (используется только при useWorker:false).
   apiBase: "https://api.github.com",
 };
 
-// Путь к data.json в репо (для удобства)
-window.DATA_FILE = `${window.CONFIG.apiBase}/repos/${window.CONFIG.owner}/${window.CONFIG.repo}/contents/${window.CONFIG.dataPath}`;
+// --- Внутреннее: куда слать запросы и какие заголовки ---
+// dataEndpoint: адрес, по которому store.js читает/пишет data.json.
+// authHeader(): заголовки запроса. В режиме воркера — без Authorization!
+//               Токен живёт в секрете воркера и наружу не выходит.
+(function () {
+  const C = window.CONFIG;
 
-// Заголовок авторизации (собирается один раз)
-function authHeader() {
-  return {
-    Authorization: `Bearer ${window.CONFIG.token}`,
-    Accept: "application/vnd.github+json",
-    "X-GitHub-Api-Version": "2022-11-28",
-  };
-}
-window.authHeader = authHeader;
+  if (C.useWorker) {
+    // Удаляем возможный trailing slash.
+    window.DATA_FILE = C.workerUrl.replace(/\/+$/, "");
+    window.authHeader = function () {
+      return {
+        Accept: "application/json",
+      };
+    };
+  } else {
+    window.DATA_FILE = `${C.apiBase}/repos/${C.owner}/${C.repo}/contents/${C.dataPath}`;
+    window.authHeader = function () {
+      return {
+        Authorization: `Bearer ${C.token}`,
+        Accept: "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28",
+      };
+    };
+  }
+})();
