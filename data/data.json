@@ -245,7 +245,7 @@
       "ownerName": "Тестер",
       "ownerNick": "test",
       "pin": "5555",
-      "points": 10,
+      "points": 6767,
       "inventory": [],
       "pet": {
         "species": "dragon",
@@ -265,6 +265,6 @@
   ],
   "meta": {
     "version": 2,
-    "updatedAt": "2026-06-16T19:00:45.277Z"
+    "updatedAt": "2026-06-16T19:00:52.160Z"
   }
 }
