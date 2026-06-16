@@ -246,7 +246,9 @@
       "ownerNick": "test",
       "pin": "5555",
       "points": 6767,
-      "inventory": [],
+      "inventory": [
+        "sunglasses"
+      ],
       "pet": {
         "species": "dragon",
         "name": "Кринжик",
@@ -265,6 +267,6 @@
   ],
   "meta": {
     "version": 2,
-    "updatedAt": "2026-06-16T19:00:53.445Z"
+    "updatedAt": "2026-06-16T19:01:00.659Z"
   }
 }
