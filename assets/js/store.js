@@ -32,15 +32,13 @@ window.Store = (function () {
       CFG &&
       CFG.owner &&
       CFG.owner !== "YOUR_GITHUB_USERNAME" &&
-      CFG.token &&
-      CFG.token !== "ghp_ЗДЕСЬ_ТВОЙ_ТОКЕН" &&
-      !CFG.token.startsWith("ghp_ЗДЕСЬ")
+      CFG.workerUrl &&
+      !CFG.workerUrl.includes("твой-сабаккаунт")
     );
   }
-
   function notConfiguredError() {
     return new Error(
-      "CONFIG не заполнен. Открой config.js и впиши owner + token. " +
+      "CONFIG не заполнен. Открой config.js и впиши owner и workerUrl. " +
         "Подробнее — в README.md."
     );
   }
