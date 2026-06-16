@@ -89,7 +89,7 @@ window.Auth = (function () {
     if (!speciesId) return Promise.reject(new Error("Выберите вид питомца"));
     if (!petName) return Promise.reject(new Error("Придумайте кличку питомцу"));
     if (!validatePin(pin))
-      return Promise.reject(new Error("PIN должен быть 4 цифры")));
+      return Promise.reject(new Error("PIN должен быть 4 цифры"));
 
     // Проверяем уникальность ника + существование вида.
     return window.Store.loadData().then((data) => {
