@@ -13,7 +13,7 @@ window.CONFIG = {
   //            → Fine-grained tokens → права: Contents = Read and write (только на этот репо)
   // ВАЖНО: токен виден в коде страницы. Не клади в репо с чувствительными данными.
   //        Для лагеря это приемлемо (ты сам так решил).
-  token: "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",
+  token: "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",
 
   // --- PIN администратора ---
   // Вход в admin.html происходит по этому пину.
