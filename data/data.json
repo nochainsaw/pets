@@ -268,10 +268,32 @@
       "redeemedCodes": [
         "WIZARD"
       ]
+    },
+    {
+      "id": "kid-mqhyu06z",
+      "ownerName": "Гр",
+      "ownerNick": "по",
+      "pin": "5555",
+      "points": 0,
+      "inventory": [],
+      "pet": {
+        "species": "fox",
+        "name": "Оо",
+        "mood": "happy",
+        "hunger": 70,
+        "lastFed": null,
+        "equipped": {
+          "hat": null,
+          "face": null,
+          "neck": null,
+          "body": null
+        }
+      },
+      "createdAt": "2026-06-17T11:06:22.715Z"
     }
   ],
   "meta": {
     "version": 2,
-    "updatedAt": "2026-06-16T19:02:08.049Z"
+    "updatedAt": "2026-06-17T11:06:23.146Z"
   }
 }
