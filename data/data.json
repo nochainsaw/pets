@@ -194,7 +194,7 @@
       "ownerName": "Вера",
       "ownerNick": "vera",
       "pin": "2222",
-      "points": 40,
+      "points": 50,
       "inventory": [
         "sunglasses",
         "scarf",
@@ -295,6 +295,6 @@
   ],
   "meta": {
     "version": 2,
-    "updatedAt": "2026-06-17T11:48:04.870Z"
+    "updatedAt": "2026-06-17T11:48:51.549Z"
   }
 }
