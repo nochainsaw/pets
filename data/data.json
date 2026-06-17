@@ -205,7 +205,7 @@
         "name": "Огонёк",
         "mood": "happy",
         "hunger": 100,
-        "lastFed": "2026-06-15T07:30:00Z",
+        "lastFed": "2026-06-17T11:22:35.040Z",
         "equipped": {
           "hat": null,
           "face": "sunglasses",
@@ -294,6 +294,6 @@
   ],
   "meta": {
     "version": 2,
-    "updatedAt": "2026-06-17T11:06:23.146Z"
+    "updatedAt": "2026-06-17T11:22:35.325Z"
   }
 }
