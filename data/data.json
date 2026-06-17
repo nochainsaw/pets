@@ -209,7 +209,7 @@
         "lastFed": "2026-06-17T11:22:35.040Z",
         "equipped": {
           "hat": null,
-          "face": "glasses",
+          "face": "sunglasses",
           "neck": "scarf",
           "body": null
         }
@@ -295,6 +295,6 @@
   ],
   "meta": {
     "version": 2,
-    "updatedAt": "2026-06-17T11:32:28.165Z"
+    "updatedAt": "2026-06-17T11:47:53.955Z"
   }
 }
